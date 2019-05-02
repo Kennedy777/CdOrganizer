@@ -7,7 +7,7 @@ namespace CDOrganizer.Models
     private int _id;
 
     private static List<CD> _allCDs = new List<CD> {};
-    private Dictionary <string, string> _cd = new Dictionary<string, string>()
+    private Dictionary <string, string> _cd = new Dictionary<string, string>
     {
       {"Title", ""},
       {"Artist", ""}

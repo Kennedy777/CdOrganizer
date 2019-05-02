@@ -28,9 +28,14 @@ namespace CDOrganizer.Models
         return _categoryId;
       }
 
-      public static List<Category> GetCDs()
+      public static List<Category> GetAllCDs()
       {
         return _allCDs;
+      }
+
+      public List<CD> GetCDs()
+      {
+        return _cds;
       }
 
       public static Category Find(int searchId)

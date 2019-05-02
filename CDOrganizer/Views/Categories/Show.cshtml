@@ -3,10 +3,10 @@
 <ol>
 @foreach (var cd in @Model["CDs"])
 {
-  <li><a href='/categories/@Model["category"].GetCategoryId()/cds/@cd.GetId()'>@cd.GetDescription()</a></li>
+  <li><a href='/categories/@Model["category"].GetCategoryId()/cds/@cd.GetId()'>@cd.GetCDs()</a></li>
 }
 </ol>
 
-<p><a href='/categories/@Model["category"].GetCategoryId()/cds/new'>Add a new item</a></p>
+<p><a href='/categories/@Model["category"].GetCategoryId()/cds/new'>Add a new CD</a></p>
 <p><a href='/categories'>Return to category list</a></p>
 <p><a href='/'>Return to Main Page</a></p>

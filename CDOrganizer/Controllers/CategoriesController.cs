@@ -11,7 +11,7 @@ namespace CDOrganizer.Controllers
     [HttpGet("/categories")]
     public ActionResult Index()
     {
-      List<Category> allCategories = Category.GetCDs();
+      List<Category> allCategories = Category.GetAllCDs();
       return View(allCategories);
     }
 
@@ -25,7 +25,7 @@ namespace CDOrganizer.Controllers
     public ActionResult Create(string categoryName)
     {
       Category newCategory = new Category(categoryName);
-      List<Category> allCategories = Category.GetCDs();
+      List<Category> allCategories = Category.GetAllCDs();
       return View("Index", allCategories);
     }
 

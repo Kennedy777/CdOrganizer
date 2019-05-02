@@ -1,0 +1,27 @@
+@using CDOrganizer.Models;
+
+<h1>Organize your CDs!</h1>
+
+<ul>
+@if (Model.Count == 0)
+  {
+    <p>You have no cds listed</p>
+  }
+  @if(Model.Count != 0)
+  {
+    @foreach (CD cd in Model)
+  {
+    @foreach(KeyValuePair<string, string> entry in @cd.GetCD())
+            {
+                <li>@entry.Key: @entry.Value</li>
+            }
+            <p></p>
+    }
+}
+
+</ul>
+<a href="/cds/new">Add a new CD.</a>
+
+<form action="/cds/delete" method="post">
+  <button type="submit" name="button">Clear All CDs</button>
+</form>

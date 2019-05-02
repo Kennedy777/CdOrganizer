@@ -1,7 +1,7 @@
 <h3>List of CDs in this category</h3>
 
 <ol>
-@foreach (var cd in @Model["CDs"])
+@foreach (var cd in @Model["CD"])
 {
   <li><a href='/categories/@Model["category"].GetCategoryId()/cds/@cd.GetId()'>@cd.GetCDs()</a></li>
 }

@@ -25,6 +25,8 @@ namespace CDOrganizer.Controllers
       return View(model);
     }
 
+    // foreach (CD cd in @Model.GetDictionary()[CategoryName]
+
     [HttpPost("/cds/delete")]
     public ActionResult DeleteAll()
     {

@@ -4,8 +4,6 @@ namespace CDOrganizer.Models
 {
   public class CD
   {
-    // private string _title;
-    // private string _artist;
     private int _id;
 
     private static List<CD> _allCDs = new List<CD> {};

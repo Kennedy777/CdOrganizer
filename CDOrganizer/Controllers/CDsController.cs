@@ -7,31 +7,22 @@ namespace CDOrganizer.Controllers
   public class CDsController : Controller
   {
 
-    [HttpGet("/cds")]
-    public ActionResult Index()
+    [HttpGet("/categories/{categoryId}/cds/new")]
+    public ActionResult New(int categoryId)
     {
-      List<CD> allCDs = CD.GetAll();
-      return View(allCDs);
+      Category category = Category.Find(categoryId);
+      return View(category);
     }
 
-    [HttpGet("/cds/new")]
-    public ActionResult New()
+    [HttpGet("/categories/{categoryId}/cds/{id}")]
+    public ActionResult Show(int categoryId, int id)
     {
-      return View();
-    }
-
-    [HttpPost("/cds")]
-    public ActionResult Create(string title, string artist)
-    {
-      CD myCD = new CD(title, artist);
-      return RedirectToAction("Index");
-    }
-
-    [HttpGet("/cds/{id}")]
-    public ActionResult Show(int id)
-    {
-       CD myCD = CD.Find(id);
-      return View(myCD);
+      CD myCD = CD.Find(id);
+      Dictionary<string, object> model = new Dictionary<string, object>();
+      Category category = Category.Find(categoryId);
+      model.Add("CD", myCD);
+      model.Add("category", category);
+      return View(model);
     }
 
     [HttpPost("/cds/delete")]

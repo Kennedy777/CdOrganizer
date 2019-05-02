@@ -1,6 +1,7 @@
 <h1>CD Collection: </h1>
 
-<h2>@Model.GetCD()</h2>
+<h2>@Model["cd"].GetCD()</h2>
+<h3>Category: @Model["category"].GetCategoryName()</h3>
 
-<a href='/cds/new'>Add another CD</a>
-<a href='/cds'>View all CD</a>
+<a href='/categories/@Model["category"].GetId()/cds/new'>Add another CD</a>
+<a href='/categories'>View all CD</a>

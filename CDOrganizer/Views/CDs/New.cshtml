@@ -5,9 +5,10 @@
     <title>Welcome to your CD collection</title>
   </head>
   <body>
-    <h1>CD List</h1>
+    <h1>Add a new CD to @Model.GetCategoryName()</h1>
 
-    <form action="/cds" method="post">
+    <form action="/categories/@Model.GetCategoryId()/cds" method="post">
+      <input id='categoryId' name='categoryId' type='hidden' value='@Model.GetCategoryId()'>
       <label for="title">Add CD title</label>
       <input id="title" name="title" type="text">
       <label for="artist">Add artist</label>

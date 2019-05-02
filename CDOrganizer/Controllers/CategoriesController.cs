@@ -39,5 +39,18 @@ namespace CDOrganizer.Controllers
       model.Add("CDs", categoryCDs);
       return View(model);
     }
+
+    [HttpPost("/categories/{categoryId}/cds")]
+       public ActionResult Create(int categoryId, string title, string artist)
+       {
+         Dictionary<string, object> model = new Dictionary<string, object>();
+         Category foundCategory = Category.Find(categoryId);
+         CD newCD = new CD(title, artist);
+         foundCategory.AddCD(newCD);
+         List<CD> categoryCDs = foundCategory.GetCDs();
+         model.Add("cds", categoryCDs);
+         model.Add("category", foundCategory);
+         return View("Show", model);
+       }
   }
 }
